@@ -1,59 +1,51 @@
 <x-guest-layout>
+    <h1 class="font-['Playfair_Display'] text-[40px] text-[#0f5132] text-center leading-tight">FundSmart</h1>
+    <div class="text-center text-[13px] text-[#6b8f7a] tracking-[1px] mb-5 uppercase">CRIAR CONTA</div>
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
-
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        
+        <div class="mb-3">
+            <label class="block font-semibold text-[#0f5132] mb-1">Nome</label>
+            <input type="text" name="name" :value="old('name')" required autofocus class="w-full border-gray-300 rounded-lg focus:ring-[#198754] focus:border-[#198754]">
+            <x-input-error :messages="$errors->get('name')" class="mt-1" />
         </div>
 
-        <!-- Cpf -->
-        <div x-data>
-            <x-input-label for="cpf" :value="__('cpf')" />
-            <x-text-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" :value="old('cpf')" required autofocus autocomplete="cpf" x-mask="999.999.999-99" placeholder="xxx.xxx.xxx-xx"/>
-            <x-input-error :messages="$errors->get('cpf')" class="mt-2" />
+        <div class="mb-3">
+            <label class="block font-semibold text-[#0f5132] mb-1">E-mail</label>
+            <input type="email" name="email" :value="old('email')" required class="w-full border-gray-300 rounded-lg focus:ring-[#198754] focus:border-[#198754]">
+            <x-input-error :messages="$errors->get('email')" class="mt-1" />
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="mb-3" x-data>
+            <label class="block font-semibold text-[#0f5132] mb-1">CPF</label>
+            <input type="text" name="cpf" :value="old('cpf')" required class="w-full border-gray-300 rounded-lg focus:ring-[#198754] focus:border-[#198754]" x-mask="999.999.999-99">
+            <x-input-error :messages="$errors->get('cpf')" class="mt-1" />
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="mb-3">
+            <label class="block font-semibold text-[#0f5132] mb-1">Senha</label>
+            <input type="password" name="password" required autocomplete="new-password" class="w-full border-gray-300 rounded-lg focus:ring-[#198754] focus:border-[#198754]">
+            <x-input-error :messages="$errors->get('password')" class="mt-1" />
         </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        <div class="mb-3">
+            <label class="block font-semibold text-[#0f5132] mb-1">Confirmar Senha</label>
+            <input type="password" name="password_confirmation" required class="w-full border-gray-300 rounded-lg focus:ring-[#198754] focus:border-[#198754]">
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-1" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+        <div class="flex flex-col items-center justify-end mt-4">
+            <button class="w-full bg-[#198754] hover:bg-[#157347] text-white h-[48px] rounded-[12px] font-semibold transition">
+                Cadastrar
+            </button>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
+            <div class="mt-3 text-sm text-center">
+                Já tem uma conta? 
+                <a class="text-[#198754] hover:underline font-semibold" href="{{ route('login') }}">
+                    Fazer Login
+                </a>
+            </div>
         </div>
     </form>
 </x-guest-layout>

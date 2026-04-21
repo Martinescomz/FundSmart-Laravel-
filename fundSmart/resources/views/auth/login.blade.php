@@ -9,7 +9,7 @@
 
         <div class="mb-3" x-data>
             <label class="block font-semibold text-[#0f5132] mb-1">Cpf</label>
-            <input type="text" name="cpf" value="{{ old('cpf') }}" required autofocus class="w-full border-gray-300 rounded-lg focus:ring-[#198754] focus:border-[#198754]" x-mask="999.999.999-99" placeholder="xxx.xxx.xxx-xx">
+            <input type="text" name="cpf" value="{{ old('cpf') }}" required autofocus class="w-full border-gray-300 rounded-lg focus:ring-[#198754] focus:border-[#198754]" x-mask="999.999.999-99">
             <x-input-error :messages="$errors->get('cpf')" class="mt-1" />
         </div>
 
