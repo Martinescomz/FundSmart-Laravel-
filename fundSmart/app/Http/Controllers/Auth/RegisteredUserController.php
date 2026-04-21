@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -12,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+
 
 class RegisteredUserController extends Controller
 {
@@ -28,6 +28,7 @@ class RegisteredUserController extends Controller
      *
      * @throws ValidationException
      */
+
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
