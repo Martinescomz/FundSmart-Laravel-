@@ -9,6 +9,13 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
+        <!-- Cpf -->
+        <div x-data>
+            <x-input-label for="cpf" :value="__('cpf')" />
+            <x-text-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" :value="old('cpf')" required autofocus autocomplete="cpf" x-mask="999.999.999-99" placeholder="xxx.xxx.xxx-xx"/>
+            <x-input-error :messages="$errors->get('cpf')" class="mt-2" />
+        </div>
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />

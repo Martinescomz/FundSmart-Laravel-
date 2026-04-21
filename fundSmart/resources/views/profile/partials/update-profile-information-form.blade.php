@@ -23,6 +23,12 @@
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
+        <div x-data>
+            <x-input-label for="cpf" :value="__('Cpf')" />
+            <x-text-input id="cpf" name="cpf" type="text" class="mt-1 block w-full" :value="old('cpf', $user->cpf)" required autofocus autocomplete="cpf" x-mask="999.999.999-99" placeholder="xxx.xxx.xxx-xx"/>
+            <x-input-error class="mt-2" :messages="$errors->get('cpf')" />
+        </div>
+
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
