@@ -11,8 +11,21 @@ export default {
 
     theme: {
         extend: {
+            // Keep your fonts here
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                inter: ['Inter', 'sans-serif'],
+                playfair: ['Playfair Display', 'serif'],
+            },
+            // Keep your animations here
+            keyframes: {
+                fadeUp: {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+            },
+            animation: {
+                fadeUp: 'fadeUp 0.6s ease forwards',
             },
         },
     },
