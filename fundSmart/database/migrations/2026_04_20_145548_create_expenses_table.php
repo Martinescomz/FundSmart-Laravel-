@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('expenses', function (Blueprint $table) {
+        Schema::create('movement', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name');
             $table->text('description');
             $table->decimal('value', 10, 2);
-            $table->date('date_expenses');
+            $table->date('date_movement');
             $table->foreignId('id_usuario');
             $table->foreignId('id_category')->constrained('category');
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('expenses');
+        Schema::dropIfExists('launch');
     }
 };

@@ -17,10 +17,10 @@
 
                 <div x-data class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     
-                    <a a href="{{ url('/exepenses/create') }}" 
+                    <a a href="{{ url('/movement/create') }}" 
                        class="flex flex-col items-center justify-center h-[90px] rounded-[16px] border border-[#198754] text-[#198754] font-semibold transition-all duration-300 hover:bg-[#198754] hover:text-white hover:-translate-y-1 hover:shadow-lg">
                         <i class="bi bi-plus-circle text-2xl mb-1"></i>
-                        <span>Lançamento</span>
+                        <span>Movimentação</span>
                     </a>
 
                     <a href="{{ url('/consulta') }}" 

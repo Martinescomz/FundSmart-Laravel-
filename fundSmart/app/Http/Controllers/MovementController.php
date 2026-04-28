@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ExpensesController extends Controller
+class MovementController extends Controller
 {
     public function index(){
-        return view('exepenses.menu');
+        return view('movement.menu');
     }
 
     public function create(){
-        return view('exepenses.createMove');
+        return view('movement.createMovement');
     }
     
     public function store(){
