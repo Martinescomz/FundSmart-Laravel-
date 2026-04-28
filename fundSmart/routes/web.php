@@ -18,8 +18,10 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/exepenses/menu',[ExpensesController::class, 'index'])->name('menu');
 
-    Route::get('/alpine', []);
+    //Route for CREATE a movement
+    Route::get('/exepenses/create', [ExpensesController::class, 'create'])->name('createLaunch');
+    Route::post('/exepenses/store', [ExpensesController::class, 'store']);
 
-});
+    });
 
 require __DIR__.'/auth.php';
