@@ -16,21 +16,21 @@
             <input type="text" name="name" required> 
 
             <label><h3>Descrição</h3></label>
-            <input type="text" name="description">
+            <input type="text" name="description" required>
 
             <label><h3>Valor</h3></label>
-            <input type="number" name="value">
+            <input type="number" name="value" required>
 
             <label><h3>Data</h3></label>
-            <input type="date" name="date_movement">
+            <input type="date" name="date_movement" required>
 
             <label><h3>Categoria</h3></label>
         
             @foreach($allCategory as $category)
-                <input type="radio" id="html" name="category" value="{{$category->id}}">
+                <input type="radio" id="html" name="category" value="{{$category->id}}" required>
                 <label for="html">{{$category->name}}</label><br>
             @endforeach
-
+            <a href="/category/create">+ Criar categoria</a>
             <br>
             
             <input type="submit">

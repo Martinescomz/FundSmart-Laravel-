@@ -27,6 +27,13 @@ class MovementController extends Controller
     public function store(Request $request){
         $movement = new Movement;
 
+        $request->validate([
+        'name' => 'required|string|max:255',
+        'value' => 'required|numeric',
+        'date_movement' => 'required|date',
+        'category' => 'required|exists:categories,id'
+    ]);
+
         $userId = Auth::id();
         //dd($userId);
         $movement -> name = $request -> name;
