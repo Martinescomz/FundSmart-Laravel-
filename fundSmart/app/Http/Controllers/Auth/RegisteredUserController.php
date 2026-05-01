@@ -45,6 +45,26 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        //When a new user is created the DB create 4 categories for the user
+        //income(rendimento/receita) = 0
+        //expense(despesa) = 1
+        $categoryDefault= [
+            ['name' => 'mercado', 'type' => 1],
+            ['name' => 'investimento', 'type' => 1],
+            ['name' => 'salário', 'type' => '0'],
+            ['name' => 'casa', 'type' => '1']
+        ];
+
+
+        foreach($categoryDefault as $category){
+            $user->category()->create([
+                'name' => $category['name'],
+                'type' => $category['type']
+            ]);
+        }
+
+        
+
         event(new Registered($user));
 
         Auth::login($user);

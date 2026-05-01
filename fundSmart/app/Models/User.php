@@ -29,4 +29,10 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    public function category(){
+        return $this -> hasMany(Category::class, 'user_id');
+    }
+
+    
 }

@@ -17,9 +17,11 @@ class CategorySeeder extends Seeder
     {
         for($x = 0; $x < 5; $x++){
             DB::table('category')->insert([
+                'created_at' => date('d/m/y'),
+                'updated_at' => date('d/m/y'),
                 'name' => Str::random(3),
                 'type' => rand(0,1),
-                'user_id' => 1
+                'user_id' => rand(1, 10)
             ]);
         }
     }

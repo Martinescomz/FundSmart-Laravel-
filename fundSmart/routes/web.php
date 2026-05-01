@@ -16,6 +16,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
+    //debug remove later use
+    Route::get('/dashboard', [MovementController::class, 'index']);
+
     //Route for CREATE a movement
     Route::get('/movement/create', [MovementController::class, 'create'])->name('createLaunch');
     Route::post('/movement/store', [MovementController::class, 'store']);

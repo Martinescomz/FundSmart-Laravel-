@@ -11,6 +11,7 @@
     <div>
         <form action="/movement/store" method="post">
             @csrf
+            
             <label><h2>Nome da movimentação</h2></label>
             <input type="text" name="name" required> 
 
@@ -25,7 +26,9 @@
 
             <label><h3>Categoria</h3></label>
             <input type="text" name="category">
+            
             <br>
+            
             <input type="submit">
 
         </form>

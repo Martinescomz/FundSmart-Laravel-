@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Movement;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -10,11 +11,17 @@ use Illuminate\Support\Facades\Auth;
 class MovementController extends Controller
 {
     public function index(){
-        return view('movement.menu');
+        $userId = Auth::id();
+        $movement = Movement::where('user_id', $userId)->get();
+        return view('movement.dashboard', ['allMovement' => $movement]);
     }
 
     public function create(){
-        return view('movement.createMovement');
+        $userId = Auth::id();
+        
+        $category = Category::where('user_id', $userId)->get(); 
+
+        return view('movement.createMovement', ['allCategory' => $category]);
     }
     
     public function store(Request $request){
@@ -25,12 +32,15 @@ class MovementController extends Controller
         $movement -> name = $request -> name;
         $movement -> description = $request -> description;
         $movement -> value = $request -> value;
-        $movement -> data_movement = $request -> data_movement;
-        $movement -> id_usuario = $userId;
-        $movement -> category = $request -> category;
-
+        $movement -> date_movement = $request -> date_movement;
+        $movement -> user_id = $userId;
+        $movement -> id_category = $request -> category;
+        //dd($movement);
         $movement ->save();
-        dd($movement);
+
+        return redirect('/dashboard');
+
+        
 
     }
 }
