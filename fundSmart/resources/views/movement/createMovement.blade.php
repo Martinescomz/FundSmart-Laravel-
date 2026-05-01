@@ -11,7 +11,7 @@
     <div>
         <form action="/movement/store" method="post">
             @csrf
-            
+
             <label><h2>Nome da movimentação</h2></label>
             <input type="text" name="name" required> 
 
@@ -25,8 +25,12 @@
             <input type="date" name="date_movement">
 
             <label><h3>Categoria</h3></label>
-            <input type="text" name="category">
-            
+        
+            @foreach($allCategory as $category)
+                <input type="radio" id="html" name="category" value="{{$category->id}}">
+                <label for="html">{{$category->name}}</label><br>
+            @endforeach
+
             <br>
             
             <input type="submit">
